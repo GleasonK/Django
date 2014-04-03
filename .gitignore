@@ -1,3 +1,9 @@
+## Bin files
+KGBlog/bin/
+bin/*
 bin/
 
-KGBlog/bin/
+## Other Virtualenv files
+KGBlog/lib/
+KGBlog/include/
+
