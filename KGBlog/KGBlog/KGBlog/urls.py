@@ -15,4 +15,4 @@ urlpatterns = patterns('',
     url(r'^articles/', include('article.urls', namespace='article'))
 )
 
-#Take 2
+#Take 3
