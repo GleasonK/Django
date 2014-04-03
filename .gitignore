@@ -7,3 +7,5 @@ bin/
 KGBlog/lib/
 KGBlog/include/
 
+## .DS_Store
+.DS_Store
