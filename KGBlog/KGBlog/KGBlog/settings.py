@@ -81,3 +81,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = '' ## Once deployed, move out of way
+                 ## Can now include Amazon web services
+
+STATICFILES_DIRS = (
+    ('assets', '/static/')
+    ## use strings like /home/html/static  keep it absolute
+)
+
+
+TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]

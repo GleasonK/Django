@@ -1,8 +1,18 @@
-<html>
+{% extends 'base.html' %}
+
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block sidebar %}
+	<li><a href="/articles/all">View All Articles</a></li>
+{% endblock %}
+
+{% block content %}
+<!--<html>
 <head><title>{{ article.title }} - Articles</title></head>
-<body>
+<body style="max-width: 950px; text-align:justify;">-->
 	
 	<h1>{{ article.title }}</h1>
 	<p>{{ article.body }}</p>
 
-</body>
+{% endblock %}
+<!--</body></html>-->
