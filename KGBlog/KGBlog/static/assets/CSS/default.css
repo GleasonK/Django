@@ -1,0 +1,25 @@
+body{
+	text-align: center;
+}
+
+#page {
+	width:950px;
+	text-align: justify;
+	margin: 15px auto;
+	background-color:#fafafa;
+}
+
+
+#sidebar {
+	float:left;
+	width:160px;
+	border: 2px groove #800000;
+	padding: 25px 15px 25px 0;
+}
+
+#content {
+	float: left;
+	width: 600px;
+	border: 2px groove #888888;
+	padding: 10px;
+}

@@ -77,16 +77,21 @@ USE_L10N = True
 USE_TZ = True
 
 
+STATIC_ROOT = os.path.join(BASE_DIR, "static/assets") 
+    ## Only meant for deployment
+    ## os.path.join(BASE_DIR, "static") 
+    ## Once deployed, move out of way
+    ## Can now include Amazon web services
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = '' ## Once deployed, move out of way
-                 ## Can now include Amazon web services
+
 
 STATICFILES_DIRS = (
-    ('assets', '/static/')
+    ('assets', os.path.join(BASE_DIR, "static/"))
     ## use strings like /home/html/static  keep it absolute
 )
 
