@@ -13,14 +13,35 @@ def index(request):
 	return render(request, 'article/articles.html', context)
 
 def articles(request):
-	context = { 'articles':Article.objects.all() }
+	language = "en-us"
+	session_language = 'en-us'
+
+	if 'lang' in request.COOKIES:
+		language = request.COOKIES['lang']
+
+	if 'lang' in request.session:
+		session_language = request.session['lang']
+
+	context = {
+		'articles':Article.objects.all(), 
+		'language':language,
+		'session_language': session_language
+		}
 	return render(request, 'article/articles.html', context) 
 
 def article(request, article_id=1):
 	context = { 'article':Article.objects.get(id=article_id) }
 	return render(request, 'article/article.html', context)
 
-
+## Create a language cookie.
+def language(request, language='en-us'):
+	## Need to get a response first, then set cookie on response
+	## Need to use request for session variable 
+	response = HttpResponse('setting language to %s' % request.COOKIES['lang'])
+	response.set_cookie('lang', language)
+	request.session['lang'] = language
+	
+	return response
 
 
 def hello(request):
