@@ -79,7 +79,14 @@ USE_L10N = True
 USE_TZ = True
 
 
-STATIC_ROOT = os.path.join(BASE_DIR, "static/assets") 
+STATIC_ROOT = 'staticfiles'
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
+#STATIC_ROOT = os.path.join(BASE_DIR, "static/assets") 
     ## Only meant for deployment
     ## os.path.join(BASE_DIR, "static") 
     ## Once deployed, move out of way
@@ -88,14 +95,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static/assets")
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
-STATIC_URL = '/static/'
 
-
-
-STATICFILES_DIRS = (
-    ('assets', os.path.join(BASE_DIR, "static/"))
-    ## use strings like /home/html/static  keep it absolute
-)
 
 
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
