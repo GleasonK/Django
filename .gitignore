@@ -4,9 +4,14 @@ bin/*
 bin/
 
 ## Other Virtualenv files
+<<<<<<< HEAD
 KGBlog/kgbl/
 lib/
 lib/*
+=======
+KGBlog/lib/
+KGBlog/include/
+>>>>>>> d2bd2d86bd238798fd5cd12b99f9472a1ca693ef
 
 ## .DS_Store
 .DS_Store
