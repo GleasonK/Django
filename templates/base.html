@@ -1,0 +1,38 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html style = "background:url('http://www.microsoft.com/library/media/1033/windowsvista/images/wv_home_bkgnd_photo.jpg'); background-attachment:fixed;">
+<head>
+	<link rel="stylesheet" type="text/css" href="{% static "assets/CSS/default.css" %}">
+	<title>{% block title %}This is the Base HTML{% endblock %}</title>
+	<style type="text/css">
+
+	</style>
+</head>
+<body >
+<div id="page">
+	<div id="sidebar" style="background:rgba(255,255,255,0.75); margin:15px 5px 0 0px;">
+		{% block sidebar %}
+		<ul>
+			<li><a href="/articles/all/">View All Articles</a></li>
+			<li><a href="/accounts/login/">Login</a></li>
+			<li><a href="/admin/">Admin</a></li>
+		</ul>
+		{% endblock %}
+	</div>
+
+	<div id="content" style="background:rgba(255,255,255,0.75); margin:15px 0 25px 5px;">
+		{% block content %} This is Page Content {% endblock %}
+		{% block img %}
+		<center>
+		<img style="margin-top: 25px" src="http://grfx.cstv.com/schools/bc/graphics/bc-13-logo-lg.png"/>
+		</center> 
+		{% endblock %}
+	</div>
+
+
+</div>
+
+
+</body>
+</html>
