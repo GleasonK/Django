@@ -1,9 +1,18 @@
-<h1>{{ poll.question }}</h1>
+{% load staticfiles %}
 
-<ul>
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+
+<center style = "margin-top:150px;">
+
+<h1 class="poll-title">{{ poll.question }}</h1>
+
+<ul class="result">
 {% for choice in poll.choice_set.all %}
     <li>{{ choice.choice_text }} -- {{ choice.vote }} vote{{ choice.vote|pluralize }}</li>
 {% endfor %}
 </ul>
 
 <a href="{% url 'polls:detail' poll.id %}">Vote again?</a>
+
+</center>
+

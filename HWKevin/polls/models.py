@@ -11,7 +11,8 @@ class Poll(models.Model):
 		return self.question
 
 	def was_published_recently(self):
-		return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
+		now = timezone.now()
+		return now - datetime.timedelta(days=1) <= self.pub_date < now
 	was_published_recently.admin_order_field = 'pub_date' #Filter
 	was_published_recently.boolean = True ## Makes check / handles booleans
 	was_published_recently.short_description = 'Published Recently?' #desc
@@ -23,4 +24,3 @@ class Choice(models.Model):
 
 	def __unicode__(self):
 		return self.choice_text
-

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block sidebar %}
+<ul>
+	<li><a href="/articles/all">Cancel</a></li>
+	<li><a href="/articles/create">Create New</a></li>
+</ul>
+
+{% endblock sidebar %}
+
+{% block content %}
+<form action="/articles/create/" method="post"> {% csrf_token %}
+	<ul>
+		{{form.as_ul }}
+		<!-- Also have as_p and as_table -->
+	</ul>
+	<input type="submit" name = "submit" value="Create">
+</form>
+{% endblock content %}

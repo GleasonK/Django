@@ -1,0 +1,48 @@
+body {
+	background: white url("images/background.jpg") no-repeat right bottom;
+}
+
+#select {
+	background:rgba(255,255,255,0.8);
+	border-radius: 50px 50px 0px 0px;
+	margin-bottom:-20px;
+	padding: 5px;
+	width:250px;
+}
+
+.poll-title {
+	background:rgba(255,255,255,0.8);
+	border-radius: 50px 50px 0px 0px;
+	margin-bottom:-16px;
+	padding: 5px;
+	width:500px;
+}
+
+ul {
+	background:rgba(255,255,255,0.8);
+	list-style: none;
+	padding: 25px;
+	width: 300px;
+	border-radius: 15px;
+}
+
+ul.result {
+	width: 550px;
+}
+
+li {
+	margin:5px;
+}
+
+li a {
+	color:green;
+}
+
+.poll-form {
+	background:rgba(255,255,255,0.8);
+	margin-top: 15px;
+	list-style: none;
+	padding: 25px;
+	width: 550px;
+	border-radius: 15px;
+}

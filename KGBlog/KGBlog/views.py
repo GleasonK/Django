@@ -2,7 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.contrib import auth
 from django.core.context_processors import csrf
-from django.contrib.auth.forms import UserCreationForm
+#from django.contrib.auth.forms import UserCreationForm
+from forms import MyRegistrationForm
 
 def login(request):
 	## c = context
@@ -38,7 +39,9 @@ def logout(request):
 
 def register_user(request):
 	if request.method == 'POST':
-		form = UserCreationForm(request.POST)
+		## Form should take in everything from the POST array
+		#form = UserCreationForm(request.POST)
+		form = MyRegistrationForm(request.POST)
 		if form.is_valid():
 			form.save()
 			return HttpResponseRedirect('/accounts/register_success')
@@ -47,7 +50,8 @@ def register_user(request):
 	args.update(csrf(request))
 
 	## Empty at start, knows how to render its fields, but not data
-	args['form'] = UserCreationForm();
+	#args['form'] = UserCreationForm();
+	args['form'] = MyRegistrationForm();
 	print args
 
 	return render(request, 'register.html', args)

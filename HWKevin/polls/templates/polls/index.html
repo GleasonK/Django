@@ -1,11 +1,18 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+
 {% if latest_poll_list %}
-	<ul>
+	<center style = "margin-top:150px;">
+	<h1 id = "select">Select Poll!</h1>
+	<ul style="">
 	{% for poll in latest_poll_list %}
 		{# <li><a href="/polls/{{poll.id}}/">{{ poll.question }}</a></li> #}
 		<li><a href="{% url 'polls:detail' poll.id %}">{{ poll.question }}</a></li>
 	{% endfor %}
 		<li>{{ time }}</li>
 	</ul>
+	</center>
 {% else %}
 	<p>No polls are available.</p>
 {% endif %}

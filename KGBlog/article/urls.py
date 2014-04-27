@@ -12,4 +12,5 @@ urlpatterns = patterns('',
     url(r'^helloT/$', views.helloWithTemp, name='HelloT'),
     url(r'^helloC/$',  views.HelloTemplate.as_view(), name='HelloC'),
     url(r'^language/(?P<language>[a-z\-]+)$', views.language, name='langSet'),
+    url(r'^create/$', views.create, name = "create"),
 )

@@ -12,7 +12,7 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^/$', include('article.urls', namespace='article')),
+    url(r'^$', include('article.urls', namespace='article')),
     url(r'^articles/', include('article.urls', namespace='article')),
 
     ## Authentication

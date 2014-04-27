@@ -1,8 +1,11 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect #For Formdata
 from django.template import Context
 from django.template.loader import get_template # Long way
 from django.views.generic.base import TemplateView # Class Template
+from forms import ArticleForm
+from django.core.context_processors import csrf #Page security
+
 
 from article.models import Article
 
@@ -43,6 +46,27 @@ def language(request, language='en-us'):
 	
 	return response
 
+def create(request):
+	#returns false on empty
+	if request.POST:
+		form = ArticleForm(request.POST)
+		if form.is_valid():
+			form.save()
+		return HttpResponseRedirect('/articles/all')
+	else:
+		form = ArticleForm()
+
+	## args passed to page, populate with security measures
+	args = {}
+	args.update(csrf(request))
+
+	args['form'] = form
+	return render(request, 'article/create_article.html', args)
+
+
+#################
+## Hello World ##
+#################
 
 def hello(request):
 	name = "Kevin"

@@ -1,10 +1,14 @@
-<h1>{{poll.question}}<h1/>
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+<center style = "margin-top:150px;">
+<h1 class="poll-title">{{poll.question}}</h1>
 
 {% if error_message %}
 	<p><strong>{{ error_message }}</strong></p>
 {% endif %}
 
-<form action="{% url 'polls:vote' poll.id %}" method="post">
+<form class = "poll-form" action="{% url 'polls:vote' poll.id %}" method="post">
 
 {% csrf_token %}
 {% for choice in poll.choice_set.all %}
@@ -13,6 +17,7 @@
 {% endfor %}
 <input type="submit" value="Vote Yo Choice"/>
 </form>
+</center>
 
 <!--
 <ul>
